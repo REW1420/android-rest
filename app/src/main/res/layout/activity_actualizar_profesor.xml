@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/nombreEditTextP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre" />
+
+    <EditText
+        android:id="@+id/apellidoEditTextP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="apellido" />
+
+    <EditText
+        android:id="@+id/editTextCarnetP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Carnet" />
+
+
+
+    <Button
+        android:id="@+id/actualizarButtonP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar" />
+
+</LinearLayout>

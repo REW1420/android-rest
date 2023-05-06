@@ -15,4 +15,8 @@ interface ProfesorAPI {
 
     @DELETE("profesor.php/{id}")
     fun eliminarProfesor(@Path("id") id: Int): Call<Void>
+
+    @PUT("profesor.php/{id}")
+    fun actualizarProfesor(@Path("id") id: Int, @Body profesor: Profesor): Call<Profesor>
+
 }

@@ -17,7 +17,10 @@ import edu.udb.retrofitappcrud.interaces.ProfesorAPI
 import edu.udb.retrofitappcrud.modelos.Profesor
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
-import retrofit2.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
@@ -34,8 +37,8 @@ class ProfesorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profesor)
         val fab_agregar: FloatingActionButton = findViewById<FloatingActionButton>(R.id.fab_agregar)
-        fab_agregar.setOnClickListener (View.OnClickListener {
-            val i = Intent(baseContext,CrearProfesor::class.java)
+        fab_agregar.setOnClickListener(View.OnClickListener {
+            val i = Intent(baseContext, CrearProfesor::class.java)
             i.putExtra("auth_username", auth_username)
             i.putExtra("auth_password", auth_password)
             startActivity(i)
@@ -85,26 +88,29 @@ class ProfesorActivity : AppCompatActivity() {
 
         }
     }
+
     override fun onResume() {
         super.onResume()
         cargarDatos(api)
     }
+
     private fun cargarDatos(api: ProfesorAPI) {
 
         val call = api.obtenerProfesores()
-        call.enqueue(object : Callback<List<Profesor>>{
+        call.enqueue(object : Callback<List<Profesor>> {
             override fun onResponse(
                 call: Call<List<Profesor>>,
                 response: Response<List<Profesor>>
             ) {
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     val profesor = response.body()
-                    if (profesor!=null){
+                    if (profesor != null) {
                         adapter = ProfesorAdapter(profesor)
                         recyclerView.adapter = adapter
 
                         // Establecemos el escuchador de clics en el adaptador
-                        adapter.setOnItemClickListener(object : ProfesorAdapter.OnItemClickListener{
+                        adapter.setOnItemClickListener(object :
+                            ProfesorAdapter.OnItemClickListener {
                             override fun onItemClick(profesor: Profesor) {
                                 val opciones = arrayOf("Modificar Profesor", "Eliminar Profesor")
 
@@ -112,8 +118,8 @@ class ProfesorActivity : AppCompatActivity() {
                                     .setTitle(profesor.nombre)
                                     .setItems(opciones) { dialog, index ->
                                         when (index) {
-                                            0 -> Toast.makeText(this@ProfesorActivity, "Modificar profesor", Toast.LENGTH_SHORT).show()
-                                            1 -> eliminarProfesor(profesor,api)
+                                            0 -> modificarProfesor(profesor)
+                                            1 -> eliminarProfesor(profesor, api)
                                         }
                                     }
                                     .setNegativeButton("Cancelar", null)
@@ -140,28 +146,54 @@ class ProfesorActivity : AppCompatActivity() {
                     this@ProfesorActivity,
                     "Error al obtener los alumnos 2",
                     Toast.LENGTH_SHORT
-                ).show()            }
+                ).show()
+            }
         })
     }
 
+    private fun modificarProfesor(profesor: Profesor) {
+        // Creamos un intent para ir a la actividad de actualización de profesores
+        val i = Intent(this,ActualizarProfesorActivity::class.java)
+        //pasamos los datos
+        i.putExtra("profesor_id", profesor.id)
+        i.putExtra("nombre", profesor.nombre)
+        i.putExtra("apellido", profesor.apellido)
+        i.putExtra("carnet", profesor.carnet)
+        // Iniciamos la actividad de actualización de alumnos
+        startActivity(i)
+
+
+
+    }
+
     private fun eliminarProfesor(profesor: Profesor, api: ProfesorAPI) {
-        val profesorTMP = Profesor(profesor.id,"", "", "www")
+        val profesorTMP = Profesor(profesor.id, "", "", "www")
         Log.e("API", "id : $profesor")
         val llamada = api.eliminarProfesor(profesor.id)
         llamada.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@ProfesorActivity, "Profesor eliminado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ProfesorActivity, "Profesor eliminado", Toast.LENGTH_SHORT)
+                        .show()
                     cargarDatos(api)
                 } else {
                     val error = response.errorBody()?.string()
                     Log.e("API", "Error al eliminar alumno : $error")
-                    Toast.makeText(this@ProfesorActivity, "Error al eliminar alumno 1", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@ProfesorActivity,
+                        "Error al eliminar alumno 1",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
+
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 Log.e("API", "Error al eliminar alumno : $t")
-                Toast.makeText(this@ProfesorActivity, "Error al eliminar alumno 2", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@ProfesorActivity,
+                    "Error al eliminar alumno 2",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }

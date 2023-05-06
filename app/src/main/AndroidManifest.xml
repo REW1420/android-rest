@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".vistas.ActualizarProfesorActivity"
+            android:exported="false" />
+        <activity
             android:name=".vistas.CrearProfesor"
             android:exported="false" />
         <activity
