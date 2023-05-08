@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Alumno"
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_bookmark_add_24"/>
+    <item android:title="Profesor"
+        android:id="@+id/search"
+        android:icon="@drawable/baseline_person_add_24"/>
+
+
+</menu>
