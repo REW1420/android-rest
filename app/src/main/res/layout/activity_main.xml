@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="-15dp"
         android:layout_marginBottom="100dp"
         android:clickable="true"
         android:contentDescription="TODO"
@@ -22,7 +22,9 @@
         app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -42,6 +44,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav"/>
+        app:itemBackground="@drawable/navigation_bar_txt_color"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:menu="@menu/bottom_nav"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

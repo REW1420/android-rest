@@ -13,13 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Starting"
         android:usesCleartextTraffic="true"
+
         tools:targetApi="31">
 
-        <activity
-            android:name=".splach_screen"
-            android:exported="false"
-            android:label="@string/title_activity_splach_screen"
-            android:theme="@style/Theme.RetrofitAppCrud.NoActionBar" />
+
+
         <activity
             android:name=".vistas.LoginActivity"
             android:exported="true">
