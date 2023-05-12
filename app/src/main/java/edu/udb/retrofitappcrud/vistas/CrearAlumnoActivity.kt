@@ -7,6 +7,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
+=======
+import edu.udb.retrofitappcrud.AppConfig
+>>>>>>> master
 import edu.udb.retrofitappcrud.R
 import edu.udb.retrofitappcrud.interaces.AlumnoApi
 import edu.udb.retrofitappcrud.modelos.Alumno
@@ -66,7 +70,11 @@ class CrearAlumnoActivity : AppCompatActivity() {
 
             // Crea una instancia de Retrofit con el cliente OkHttpClient
             val retrofit = Retrofit.Builder()
+<<<<<<< HEAD
                 .baseUrl("http://10.0.2.2/api/")
+=======
+                .baseUrl(AppConfig.baseUrl)
+>>>>>>> master
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

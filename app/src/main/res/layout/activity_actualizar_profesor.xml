@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/nombreEditTextP"
         android:layout_width="match_parent"
@@ -15,12 +16,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="apellido" />
+=======
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar Profesor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/nombreEditTextP"
+        android:layout_width="match_parent"
+        android:hint="Nombre"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/apellidoEditTextP"
+
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:hint="apellido"
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+>>>>>>> master
 
     <EditText
         android:id="@+id/editTextCarnetP"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:hint="Carnet" />
+=======
+        android:hint="Carnet"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+>>>>>>> master
 
 
 

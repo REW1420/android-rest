@@ -13,16 +13,32 @@
         android:textStyle="bold"
         android:gravity="center" />
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre del profesor"
         android:inputType="text" />
+=======
+
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:hint="Nombre del profesor"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+>>>>>>> master
 
     <EditText
         android:id="@+id/editTextApellido"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:hint="Apellido del profesor"
         android:inputType="text" />
@@ -33,6 +49,28 @@
         android:layout_height="wrap_content"
         android:hint="Carnet del profesor"
         android:inputType="number" />
+=======
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:hint="Apellido del profesor"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/editTextCarnet"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:hint="Carnet del profesor"
+
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+>>>>>>> master
 
     <Button
         android:id="@+id/btnGuardar"

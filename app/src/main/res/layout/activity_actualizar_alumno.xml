@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/nombreEditText"
         android:layout_width="match_parent"
@@ -23,6 +24,52 @@
         android:hint="Edad" />
 
 
+=======
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar Alumno"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/nombreEditText"
+
+        android:hint="Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+
+    <EditText
+        android:id="@+id/apellidoEditText"
+        android:hint="apellido"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+
+
+    <EditText
+        android:hint="Edad"
+        android:id="@+id/edadEditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+>>>>>>> master
 
     <Button
         android:id="@+id/actualizarButton"
