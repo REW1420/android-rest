@@ -10,10 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonSyntaxException
-<<<<<<< HEAD
-=======
 import edu.udb.retrofitappcrud.AppConfig
->>>>>>> master
 import edu.udb.retrofitappcrud.R
 import edu.udb.retrofitappcrud.interaces.ProfesorAPI
 import edu.udb.retrofitappcrud.modelos.Alumno
@@ -59,11 +56,7 @@ class ActualizarProfesorActivity : AppCompatActivity() {
 
         // Crea una instancia de Retrofit con el cliente OkHttpClient
         val retrofit = Retrofit.Builder()
-<<<<<<< HEAD
-            .baseUrl("http://10.0.2.2/api/")
-=======
             .baseUrl(AppConfig.baseUrl)
->>>>>>> master
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

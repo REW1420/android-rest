@@ -7,10 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
-=======
 import edu.udb.retrofitappcrud.AppConfig
->>>>>>> master
 import edu.udb.retrofitappcrud.R
 import edu.udb.retrofitappcrud.interaces.ProfesorAPI
 import edu.udb.retrofitappcrud.modelos.Profesor
@@ -57,21 +54,13 @@ class CrearProfesor : AppCompatActivity() {
 
             // Crea un cliente OkHttpClient con un interceptor que agrega las credenciales de autenticación
             val client = OkHttpClient.Builder().addInterceptor { chain ->
-                    val request = chain.request().newBuilder()
-<<<<<<< HEAD
-                        .addHeader("Authorization", Credentials.basic(auth_username, auth_password))
-=======
-                        .addHeader("Authorization", Credentials.basic("admin", "admin123"))
->>>>>>> master
-                        .build()
-                    chain.proceed(request)
-                }.build()
+                val request = chain.request().newBuilder()
+                    .addHeader("Authorization", Credentials.basic("admin", "admin123"))
+                    .build()
+                chain.proceed(request)
+            }.build()
             // Crea una instancia de Retrofit con el cliente OkHttpClient
-<<<<<<< HEAD
-            val retrofit = Retrofit.Builder().baseUrl("http://10.0.2.2/api/")
-=======
             val retrofit = Retrofit.Builder().baseUrl(AppConfig.baseUrl)
->>>>>>> master
                 .addConverterFactory(GsonConverterFactory.create()).client(client).build()
 
             // Crea una instancia del servicio que utiliza la autenticación HTTP básica

@@ -4,27 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <EditText
-        android:id="@+id/nombreEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre" />
-
-    <EditText
-        android:id="@+id/apellidoEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="apellido" />
-
-    <EditText
-        android:id="@+id/edadEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Edad" />
-
-
-=======
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +48,6 @@
         android:gravity="start|center_vertical"
         android:textColor="@color/black"
         android:background="@drawable/border"/>
->>>>>>> master
 
     <Button
         android:id="@+id/actualizarButton"

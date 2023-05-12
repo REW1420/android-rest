@@ -1,17 +1,11 @@
 package edu.udb.retrofitappcrud.vistas
 
-<<<<<<< HEAD
-import android.content.Intent
-import android.os.Bundle
-import android.util.Log
-=======
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
->>>>>>> master
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -20,10 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-<<<<<<< HEAD
-=======
 import edu.udb.retrofitappcrud.AppConfig
->>>>>>> master
 import edu.udb.retrofitappcrud.R
 import edu.udb.retrofitappcrud.adaptadores.ProfesorAdapter
 import edu.udb.retrofitappcrud.interaces.ProfesorAPI
@@ -42,29 +33,6 @@ class ProfesorActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: ProfesorAdapter
     private lateinit var api: ProfesorAPI
-<<<<<<< HEAD
-
-    // Obtener las credenciales de autenticación
-    val auth_username = "admin"
-    val auth_password = "admin123"
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profesor)
-        val fab_agregar: FloatingActionButton = findViewById<FloatingActionButton>(R.id.fab_agregar)
-        fab_agregar.setOnClickListener(View.OnClickListener {
-            val i = Intent(baseContext, CrearProfesor::class.java)
-            i.putExtra("auth_username", auth_username)
-            i.putExtra("auth_password", auth_password)
-            startActivity(i)
-        })
-        recyclerView = findViewById(R.id.recyclerViewP)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        // Crea un cliente OkHttpClient con un interceptor que agrega las credenciales de autenticación
-        val client = OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", Credentials.basic(auth_username, auth_password))
-=======
     val biulder = android.app.AlertDialog.Builder(this)
 
 
@@ -95,7 +63,6 @@ class ProfesorActivity : AppCompatActivity() {
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
                     .addHeader("Authorization", Credentials.basic(username.toString(), password.toString()))
->>>>>>> master
                     .build()
                 chain.proceed(request)
             }
@@ -103,11 +70,7 @@ class ProfesorActivity : AppCompatActivity() {
 
         // Crea una instancia de Retrofit con el cliente OkHttpClient
         val retrofit = Retrofit.Builder()
-<<<<<<< HEAD
-            .baseUrl("http://10.0.2.2/api/")
-=======
             .baseUrl(AppConfig.baseUrl)
->>>>>>> master
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -151,10 +114,7 @@ class ProfesorActivity : AppCompatActivity() {
             override fun onResponse(
                 call: Call<List<Profesor>>,
                 response: Response<List<Profesor>>
-<<<<<<< HEAD
-=======
 
->>>>>>> master
             ) {
                 if (response.isSuccessful) {
                     val profesor = response.body()
@@ -207,11 +167,7 @@ class ProfesorActivity : AppCompatActivity() {
 
     private fun modificarProfesor(profesor: Profesor) {
         // Creamos un intent para ir a la actividad de actualización de profesores
-<<<<<<< HEAD
-        val i = Intent(this,ActualizarProfesorActivity::class.java)
-=======
         val i = Intent(this, ActualizarProfesorActivity::class.java)
->>>>>>> master
         //pasamos los datos
         i.putExtra("profesor_id", profesor.id)
         i.putExtra("nombre", profesor.nombre)
@@ -221,10 +177,6 @@ class ProfesorActivity : AppCompatActivity() {
         startActivity(i)
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     }
 
     private fun eliminarProfesor(profesor: Profesor, api: ProfesorAPI) {
@@ -239,34 +191,20 @@ class ProfesorActivity : AppCompatActivity() {
                     cargarDatos(api)
                 } else {
                     val error = response.errorBody()?.string()
-<<<<<<< HEAD
-                    Log.e("API", "Error al eliminar alumno : $error")
-                    Toast.makeText(
-                        this@ProfesorActivity,
-                        "Error al eliminar alumno 1",
-=======
                     Log.e("API", "Error al eliminar profesor : $error")
                     Toast.makeText(
                         this@ProfesorActivity,
                         "Error al eliminar profesor 1",
->>>>>>> master
                         Toast.LENGTH_SHORT
                     ).show()
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-<<<<<<< HEAD
-                Log.e("API", "Error al eliminar alumno : $t")
-                Toast.makeText(
-                    this@ProfesorActivity,
-                    "Error al eliminar alumno 2",
-=======
                 Log.e("API", "Error al eliminar profesor : $t")
                 Toast.makeText(
                     this@ProfesorActivity,
                     "Error al eliminar profesor 2",
->>>>>>> master
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -282,8 +220,6 @@ class ProfesorActivity : AppCompatActivity() {
         val i = Intent(this, ProfesorActivity::class.java)
         startActivity(i)
     }
-<<<<<<< HEAD
-=======
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.logout,menu)
@@ -316,5 +252,4 @@ class ProfesorActivity : AppCompatActivity() {
     }
 
 
->>>>>>> master
 }

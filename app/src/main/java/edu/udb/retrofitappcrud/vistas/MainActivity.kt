@@ -2,13 +2,6 @@ package edu.udb.retrofitappcrud.vistas
 
 import android.app.AlertDialog
 import android.content.Intent
-<<<<<<< HEAD
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
-=======
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -16,15 +9,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
->>>>>>> master
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-<<<<<<< HEAD
-=======
 import edu.udb.retrofitappcrud.AppConfig
->>>>>>> master
 import edu.udb.retrofitappcrud.R
 import edu.udb.retrofitappcrud.adaptadores.AlumnoAdapter
 import edu.udb.retrofitappcrud.interaces.AlumnoApi
@@ -43,24 +32,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var api: AlumnoApi
     private lateinit var bottomNavigationView: BottomNavigationView
 
-<<<<<<< HEAD
-    // Obtener las credenciales de autenticación
-    val auth_username = "admin"
-    val auth_password = "admin123"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val fab_agregar: FloatingActionButton = findViewById<FloatingActionButton>(R.id.fab_agregar)
-            //bottom nav
-=======
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val fab_agregar: FloatingActionButton = findViewById<FloatingActionButton>(R.id.fab_agregar)
         //bottom nav
->>>>>>> master
         bottomNavigationView = findViewById(R.id.bottomNavView)
 
         bottomNavigationView.setOnItemSelectedListener {
@@ -87,12 +63,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Crea un cliente OkHttpClient con un interceptor que agrega las credenciales de autenticación
-<<<<<<< HEAD
-        val client = OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", Credentials.basic(auth_username, auth_password))
-=======
         val sharedPref = applicationContext.getSharedPreferences("sh", 0)
         val username = sharedPref.getString(LoginActivity.usernameKey, "")
         val password = sharedPref.getString(LoginActivity.passwordKey, "")
@@ -108,7 +78,6 @@ class MainActivity : AppCompatActivity() {
                         "Authorization",
                         Credentials.basic(username.toString(), password.toString())
                     )
->>>>>>> master
                     .build()
                 chain.proceed(request)
             }
@@ -116,11 +85,7 @@ class MainActivity : AppCompatActivity() {
 
         // Crea una instancia de Retrofit con el cliente OkHttpClient
         val retrofit = Retrofit.Builder()
-<<<<<<< HEAD
-            .baseUrl("http://10.0.2.2/api/")
-=======
             .baseUrl(AppConfig.baseUrl)
->>>>>>> master
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -133,13 +98,8 @@ class MainActivity : AppCompatActivity() {
         // Cuando el usuario quiere agregar un nuevo registro
         fab_agregar.setOnClickListener(View.OnClickListener {
             val i = Intent(baseContext, CrearAlumnoActivity::class.java)
-<<<<<<< HEAD
-            i.putExtra("auth_username", auth_username)
-            i.putExtra("auth_password", auth_password)
-=======
             i.putExtra("auth_username", username)
             i.putExtra("auth_password", password)
->>>>>>> master
             startActivity(i)
         })
     }
@@ -160,11 +120,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun cargarDatos(api: AlumnoApi) {
-<<<<<<< HEAD
-=======
 
 
->>>>>>> master
         val call = api.obtenerAlumnos()
         call.enqueue(object : Callback<List<Alumno>> {
             override fun onResponse(call: Call<List<Alumno>>, response: Response<List<Alumno>>) {
@@ -227,11 +184,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun eliminarAlumno(alumno: Alumno, api: AlumnoApi) {
-<<<<<<< HEAD
-        val alumnoTMP = Alumno(alumno.id,"", "", -987)
-=======
         val alumnoTMP = Alumno(alumno.id, "", "", -987)
->>>>>>> master
         Log.e("API", "id : $alumno")
         val llamada = api.eliminarAlumno(alumno.id, alumnoTMP)
         llamada.enqueue(object : Callback<Void> {
@@ -242,17 +195,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     val error = response.errorBody()?.string()
                     Log.e("API", "Error al eliminar alumno : $error")
-<<<<<<< HEAD
-                    Toast.makeText(this@MainActivity, "Error al eliminar alumno 1", Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Log.e("API", "Error al eliminar alumno : $t")
-                Toast.makeText(this@MainActivity, "Error al eliminar alumno 2", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-=======
                     Toast.makeText(
                         this@MainActivity,
                         "Error al eliminar alumno 1",
@@ -298,5 +240,4 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
         startActivity(i)
     }
->>>>>>> master
 }

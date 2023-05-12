@@ -3,10 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-<<<<<<< HEAD
-=======
     android:background="@drawable/border"
->>>>>>> master
     android:padding="16dp">
 
     <TextView
@@ -18,13 +15,6 @@
         android:gravity="center" />
 
     <EditText
-<<<<<<< HEAD
-        android:id="@+id/editTextNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre del alumno"
-        android:inputType="text" />
-=======
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -37,16 +27,10 @@
 
 
 
->>>>>>> master
 
     <EditText
         android:id="@+id/editTextApellido"
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="wrap_content"
-        android:hint="Apellido del alumno"
-        android:inputType="text" />
-=======
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:padding="16dp"
@@ -56,16 +40,10 @@
         android:textColor="@color/black"
 
         android:background="@drawable/border"/>
->>>>>>> master
 
     <EditText
         android:id="@+id/editTextCarnet"
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="wrap_content"
-        android:hint="Edad del alumno"
-        android:inputType="number" />
-=======
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:padding="16dp"
@@ -74,20 +52,14 @@
         android:gravity="start|center_vertical"
         android:textColor="@color/black"
         android:background="@drawable/border"/>
->>>>>>> master
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="wrap_content"
-        android:text="Guardar" />
-=======
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:padding="16dp"
         android:text="Guardar"
         />
->>>>>>> master
 
 </LinearLayout>

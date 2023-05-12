@@ -4,19 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <EditText
-        android:id="@+id/nombreEditTextP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre" />
-
-    <EditText
-        android:id="@+id/apellidoEditTextP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="apellido" />
-=======
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,15 +35,10 @@
         android:textColor="@color/black"
         android:background="@drawable/border"/>
 
->>>>>>> master
 
     <EditText
         android:id="@+id/editTextCarnetP"
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="wrap_content"
-        android:hint="Carnet" />
-=======
         android:hint="Carnet"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -64,7 +46,6 @@
         android:gravity="start|center_vertical"
         android:textColor="@color/black"
         android:background="@drawable/border"/>
->>>>>>> master
 
 
 
