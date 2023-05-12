@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -31,6 +33,8 @@ class ProfesorActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: ProfesorAdapter
     private lateinit var api: ProfesorAPI
+    val biulder = android.app.AlertDialog.Builder(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -216,4 +220,36 @@ class ProfesorActivity : AppCompatActivity() {
         val i = Intent(this, ProfesorActivity::class.java)
         startActivity(i)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.logout,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val biulder = android.app.AlertDialog.Builder(this)
+
+        return when (item.itemId) {
+            R.id.actionLogout -> {
+                logout()
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+
+        }
+    }
+
+    private fun logout() {
+        val usernameKey = "username"
+        val passwordKey = "password"
+        val i = Intent(this, LoginActivity::class.java)
+        val sharedPref = applicationContext.getSharedPreferences("sh", 0)
+        val editor = sharedPref.edit()
+        editor.remove(usernameKey)
+        editor.remove(passwordKey)
+        editor.apply()
+        startActivity(i)
+    }
+
+
 }

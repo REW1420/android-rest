@@ -1,17 +1,14 @@
 package edu.udb.retrofitappcrud.vistas
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
-import android.view.ViewTreeObserver
 import android.widget.Toast
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -21,7 +18,6 @@ import edu.udb.retrofitappcrud.R
 import edu.udb.retrofitappcrud.adaptadores.AlumnoAdapter
 import edu.udb.retrofitappcrud.interaces.AlumnoApi
 import edu.udb.retrofitappcrud.modelos.Alumno
-import kotlinx.coroutines.launch
 import okhttp3.Credentials
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -29,14 +25,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import kotlin.coroutines.coroutineContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AlumnoAdapter
     private lateinit var api: AlumnoApi
     private lateinit var bottomNavigationView: BottomNavigationView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -215,5 +209,35 @@ class MainActivity : AppCompatActivity() {
                     .show()
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.logout, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val biulder = AlertDialog.Builder(this)
+
+        return when (item.itemId) {
+            R.id.actionLogout -> {
+                logout()
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+
+        }
+    }
+
+    private fun logout() {
+        val usernameKey = "username"
+        val passwordKey = "password"
+        val i = Intent(this, LoginActivity::class.java)
+        val sharedPref = applicationContext.getSharedPreferences("sh", 0)
+        val editor = sharedPref.edit()
+        editor.remove(usernameKey)
+        editor.remove(passwordKey)
+        editor.apply()
+        startActivity(i)
     }
 }

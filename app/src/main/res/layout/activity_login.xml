@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -15,30 +16,53 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:padding="-25dp">
+            android:padding="-25dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
 
-        <EditText
-            android:id="@+id/correo"
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:hint="Usuario o correo"
-            android:layout_marginBottom="35dp"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Iniciar sesion"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+            <EditText
+                android:hint="Usuario"
+                android:id="@+id/correo"
 
-            />
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/black"
+                android:background="@drawable/border"/>
 
-        <EditText
-            android:id="@+id/contra"
-            android:layout_width="340dp"
-            android:layout_height="50dp"
-            android:hint="Contraseña"
-            android:layout_marginBottom="35dp"
-            />
 
+            <EditText
+                android:id="@+id/contra"
+
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/black"
+                android:background="@drawable/border"/>
+            <Switch
+                android:id="@+id/showPasswordSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Mostrar contraseña"/>
         <Button
             android:id="@+id/iniciar"
             android:layout_width="340dp"
             android:layout_height="50dp"
             android:text="Iniciar session"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/rosadito"/>
 
     </LinearLayout>

@@ -4,18 +4,18 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Input
+import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+
 import edu.udb.retrofitappcrud.AppConfig
 import edu.udb.retrofitappcrud.adaptadores.AlumnoAdapter
 import edu.udb.retrofitappcrud.databinding.ActivityLoginBinding
@@ -32,7 +32,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityLoginBinding
 
     companion object {
@@ -40,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
         const val passwordKey = "password"
     }
 
+    val showPasswordSwitch : Switch?=null
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -52,10 +52,18 @@ class LoginActivity : AppCompatActivity() {
         var editTextCorreo = findViewById<EditText>(binding.correo.id)
         var editTextContra = findViewById<EditText>(binding.contra.id)
         var bottonIniciar = findViewById<Button>(binding.iniciar.id)
+        val showPasswordSwitch = binding.showPasswordSwitch
 
-        /// BORRAR ESTP
-        editTextCorreo.setText("admin")
-        editTextContra.setText("admin123")
+
+        showPasswordSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked){
+                editTextContra.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            } else{
+                editTextContra.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+            //move cursor to end
+            editTextContra.setSelection(editTextContra.text.length)
+        }
 
         bottonIniciar.setOnClickListener {
 

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/border"
     android:padding="16dp">
 
     <TextView
@@ -14,30 +15,51 @@
         android:gravity="center" />
 
     <EditText
-        android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:id="@+id/editTextNombre"
         android:hint="Nombre del alumno"
-        android:inputType="text" />
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
+
+
+
 
     <EditText
         android:id="@+id/editTextApellido"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
         android:hint="Apellido del alumno"
-        android:inputType="text" />
+        android:inputType="text"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+
+        android:background="@drawable/border"/>
 
     <EditText
         android:id="@+id/editTextCarnet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
         android:hint="Edad del alumno"
-        android:inputType="number" />
+        android:inputType="number"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/black"
+        android:background="@drawable/border"/>
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Guardar" />
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:text="Guardar"
+        />
 
 </LinearLayout>

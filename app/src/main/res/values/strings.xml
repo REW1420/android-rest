@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RetrofitAppCrud</string>
+    <string name="app_name">Escuela</string>
     <string name="edad">edad</string>
     <string name="apellido">apellido</string>
     <string name="nombre">nombre</string>
